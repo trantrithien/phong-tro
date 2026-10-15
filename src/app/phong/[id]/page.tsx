@@ -6,6 +6,7 @@ import { ArrowLeft, CheckCircle, Circle, Plus, Receipt, UserPlus } from '@phosph
 import { createClient } from '@/lib/supabase'
 import { AppHeader } from '@/components/app-header'
 import { RoomBadge } from '@/components/status-badge'
+import { RoomActions } from '@/components/room-actions'
 import type { HoaDon, HopDong, Phong } from '@/lib/types'
 import { btnPrimary, btnSecondary, inputCls, labelCls, ngay, vnd } from '@/lib/ui'
 
@@ -370,6 +371,15 @@ function ChiTietPhongContent() {
               </ul>
             )}
           </section>
+        </div>
+
+        <div className="mt-6">
+          <RoomActions
+            phongId={phong.id}
+            dangThue={phong.trang_thai === 'dang_thue'}
+            hopDongId={hopDong?.id ?? null}
+            onChanged={load}
+          />
         </div>
       </main>
     </div>
